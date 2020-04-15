@@ -31,9 +31,12 @@
             this.buttonPlay = new System.Windows.Forms.Button();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.button2 = new System.Windows.Forms.Button();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.currentVersion = new System.Windows.Forms.Label();
+            this.LogTextBox = new System.Windows.Forms.RichTextBox();
+            this.currentVersionLabel = new System.Windows.Forms.Label();
             this.downloadStatus = new System.Windows.Forms.Label();
+            this.serverIPText = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.FilePathText = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // buttonPlay
@@ -64,22 +67,24 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // richTextBox1
+            // LogTextBox
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(12, 97);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(672, 226);
-            this.richTextBox1.TabIndex = 7;
-            this.richTextBox1.Text = "";
+            this.LogTextBox.Enabled = false;
+            this.LogTextBox.Location = new System.Drawing.Point(12, 97);
+            this.LogTextBox.Name = "LogTextBox";
+            this.LogTextBox.ReadOnly = true;
+            this.LogTextBox.Size = new System.Drawing.Size(672, 226);
+            this.LogTextBox.TabIndex = 7;
+            this.LogTextBox.Text = "";
             // 
-            // currentVersion
+            // currentVersionLabel
             // 
-            this.currentVersion.AutoSize = true;
-            this.currentVersion.Location = new System.Drawing.Point(690, 241);
-            this.currentVersion.Name = "currentVersion";
-            this.currentVersion.Size = new System.Drawing.Size(146, 20);
-            this.currentVersion.TabIndex = 8;
-            this.currentVersion.Text = "Current Version: 00";
+            this.currentVersionLabel.AutoSize = true;
+            this.currentVersionLabel.Location = new System.Drawing.Point(690, 241);
+            this.currentVersionLabel.Name = "currentVersionLabel";
+            this.currentVersionLabel.Size = new System.Drawing.Size(146, 20);
+            this.currentVersionLabel.TabIndex = 8;
+            this.currentVersionLabel.Text = "Current Version: 00";
             // 
             // downloadStatus
             // 
@@ -90,15 +95,44 @@
             this.downloadStatus.TabIndex = 9;
             this.downloadStatus.Text = "Download Status";
             // 
+            // serverIPText
+            // 
+            this.serverIPText.Location = new System.Drawing.Point(694, 161);
+            this.serverIPText.MaxLength = 256;
+            this.serverIPText.Name = "serverIPText";
+            this.serverIPText.Size = new System.Drawing.Size(247, 26);
+            this.serverIPText.TabIndex = 10;
+            this.serverIPText.KeyDown += new System.Windows.Forms.KeyEventHandler(this.serverIp_Submit);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(694, 122);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(124, 20);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "Master server IP";
+            // 
+            // FilePathText
+            // 
+            this.FilePathText.Location = new System.Drawing.Point(16, 52);
+            this.FilePathText.Name = "FilePathText";
+            this.FilePathText.Size = new System.Drawing.Size(392, 26);
+            this.FilePathText.TabIndex = 12;
+            this.FilePathText.Text = "Path";
+            // 
             // MainView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(953, 434);
+            this.Controls.Add(this.FilePathText);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.serverIPText);
             this.Controls.Add(this.downloadStatus);
-            this.Controls.Add(this.currentVersion);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.currentVersionLabel);
+            this.Controls.Add(this.LogTextBox);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.buttonPlay);
@@ -115,9 +149,12 @@
         private System.Windows.Forms.Button buttonPlay;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.Label currentVersion;
+        private System.Windows.Forms.RichTextBox LogTextBox;
+        private System.Windows.Forms.Label currentVersionLabel;
         private System.Windows.Forms.Label downloadStatus;
+        private System.Windows.Forms.TextBox serverIPText;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox FilePathText;
     }
 }
 
