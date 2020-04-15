@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net.NetworkInformation;
 
 namespace GameLauncher
 {
@@ -22,6 +23,7 @@ namespace GameLauncher
         private void Form1_Load(object sender, EventArgs e)
         {
             this.serverIPText.Text = (string)Properties.Settings.Default["serverIp"];
+            this.FilePathText.Text = (string)Properties.Settings.Default["gameFolder"];
 
         }
 
@@ -36,6 +38,8 @@ namespace GameLauncher
             if (fbd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 this.FilePathText.Text = fbd.SelectedPath + '\\' + gameName;
+                Properties.Settings.Default["gameFolder"] = this.FilePathText.Text;
+                Properties.Settings.Default.Save();
             }
         }
 
@@ -50,10 +54,51 @@ namespace GameLauncher
             if(e.KeyCode == Keys.Enter)
             {
                 Properties.Settings.Default["serverIp"] = this.serverIPText.Text;
-                this.LogTextBox.Text += "Pinging " + this.serverIPText.Text + "...";
+                AddLogLine("Pinging " + this.serverIPText.Text + "...");
+                if (PingHost(this.serverIPText.Text))
+                {
+                    AddLogLine("Successfull!");
+
+                    Properties.Settings.Default["serverIP"] = this.serverIPText.Text;
+                    Properties.Settings.Default.Save();
+                }
+                else
+                {
+                    AddLogLine("Unuccessfull. Check the IP");
+                }
                 e.Handled = true;
                 e.SuppressKeyPress = true;
             }
+        }
+        private void AddLogLine(string line)
+        {
+            this.LogTextBox.Text += line + "\n";
+
+        }
+        public static bool PingHost(string nameOrAddress)
+        {
+            bool pingable = false;
+            Ping pinger = null;
+
+            try
+            {
+                pinger = new Ping();
+                PingReply reply = pinger.Send(nameOrAddress,1);
+                pingable = reply.Status == IPStatus.Success;
+            }
+            catch (PingException)
+            {
+                // Discard PingExceptions and return false;
+            }
+            finally
+            {
+                if (pinger != null)
+                {
+                    pinger.Dispose();
+                }
+            }
+
+            return pingable;
         }
     }
 }
