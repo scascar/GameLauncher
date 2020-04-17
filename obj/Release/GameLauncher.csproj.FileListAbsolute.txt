@@ -1,0 +1,9 @@
+C:\Users\oscar\source\repos\GameLauncher\GameLauncher\bin\Release\GameLauncher.exe.config
+C:\Users\oscar\source\repos\GameLauncher\GameLauncher\bin\Release\GameLauncher.exe
+C:\Users\oscar\source\repos\GameLauncher\GameLauncher\bin\Release\GameLauncher.pdb
+C:\Users\oscar\source\repos\GameLauncher\GameLauncher\obj\Release\GameLauncher.csprojAssemblyReference.cache
+C:\Users\oscar\source\repos\GameLauncher\GameLauncher\obj\Release\GameLauncher.MainView.resources
+C:\Users\oscar\source\repos\GameLauncher\GameLauncher\obj\Release\GameLauncher.csproj.GenerateResource.cache
+C:\Users\oscar\source\repos\GameLauncher\GameLauncher\obj\Release\GameLauncher.csproj.CoreCompileInputs.cache
+C:\Users\oscar\source\repos\GameLauncher\GameLauncher\obj\Release\GameLauncher.exe
+C:\Users\oscar\source\repos\GameLauncher\GameLauncher\obj\Release\GameLauncher.pdb

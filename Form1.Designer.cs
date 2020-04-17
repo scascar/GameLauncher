@@ -37,6 +37,8 @@
             this.serverIPText = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.FilePathText = new System.Windows.Forms.TextBox();
+            this.buttonPullData = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // buttonPlay
@@ -69,22 +71,22 @@
             // 
             // LogTextBox
             // 
-            this.LogTextBox.Enabled = false;
             this.LogTextBox.Location = new System.Drawing.Point(12, 97);
             this.LogTextBox.Name = "LogTextBox";
             this.LogTextBox.ReadOnly = true;
             this.LogTextBox.Size = new System.Drawing.Size(672, 226);
             this.LogTextBox.TabIndex = 7;
             this.LogTextBox.Text = "";
+            this.LogTextBox.TextChanged += new System.EventHandler(this.LogTextBox_TextChanged);
             // 
             // currentVersionLabel
             // 
             this.currentVersionLabel.AutoSize = true;
-            this.currentVersionLabel.Location = new System.Drawing.Point(690, 241);
+            this.currentVersionLabel.Location = new System.Drawing.Point(800, 248);
             this.currentVersionLabel.Name = "currentVersionLabel";
-            this.currentVersionLabel.Size = new System.Drawing.Size(146, 20);
+            this.currentVersionLabel.Size = new System.Drawing.Size(27, 20);
             this.currentVersionLabel.TabIndex = 8;
-            this.currentVersionLabel.Text = "Current Version: 00";
+            this.currentVersionLabel.Text = "00";
             // 
             // downloadStatus
             // 
@@ -117,9 +119,29 @@
             // 
             this.FilePathText.Location = new System.Drawing.Point(16, 52);
             this.FilePathText.Name = "FilePathText";
+            this.FilePathText.ReadOnly = true;
             this.FilePathText.Size = new System.Drawing.Size(392, 26);
             this.FilePathText.TabIndex = 12;
             this.FilePathText.Text = "Path";
+            // 
+            // buttonPullData
+            // 
+            this.buttonPullData.Location = new System.Drawing.Point(866, 238);
+            this.buttonPullData.Name = "buttonPullData";
+            this.buttonPullData.Size = new System.Drawing.Size(75, 41);
+            this.buttonPullData.TabIndex = 13;
+            this.buttonPullData.Text = "refresh";
+            this.buttonPullData.UseVisualStyleBackColor = true;
+            this.buttonPullData.Click += new System.EventHandler(this.buttonPullData_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(733, 216);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(113, 20);
+            this.label2.TabIndex = 14;
+            this.label2.Text = "current version";
             // 
             // MainView
             // 
@@ -127,6 +149,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(953, 434);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.buttonPullData);
             this.Controls.Add(this.FilePathText);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.serverIPText);
@@ -155,6 +179,8 @@
         private System.Windows.Forms.TextBox serverIPText;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox FilePathText;
+        private System.Windows.Forms.Button buttonPullData;
+        private System.Windows.Forms.Label label2;
     }
 }
 
